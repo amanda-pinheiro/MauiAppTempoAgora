@@ -34,7 +34,8 @@ namespace MauiAppTempoAgora
                         if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                         {
                             await DisplayAlert("Cidade não encontrada",
-                                $"A cidade '{cidade}' não foi encontrada. Verifique o nome e tente novamente.",
+                                $"A cidade '{cidade}' não foi encontrada. " +
+                                $"Verifique o nome e tente novamente.",
                                 "OK");
                             return;
                         }
