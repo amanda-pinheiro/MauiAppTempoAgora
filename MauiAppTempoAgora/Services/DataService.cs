@@ -12,7 +12,7 @@ namespace MauiAppTempoAgora.Services
             string chave = "ce5ac41c46a5e251d991e398f400fb17";
 
             string url = $"https://api.openweathermap.org/data/2.5/weather?" +
-                         $"q={cidade}&units=metric&appid={chave}";
+                         $"q={cidade}&units=metric&lang=pt_br&appid={chave}";
 
             using (HttpClient cliente = new HttpClient())
             { 
@@ -28,6 +28,7 @@ namespace MauiAppTempoAgora.Services
                     DateTime sunrise = time.AddSeconds((double)rascunho["sys"]["sunrise"]).ToLocalTime();
                     DateTime sunset = time.AddSeconds((double)rascunho["sys"]["sunset"]).ToLocalTime();
 
+
                     t = new()
                     {
                         lat = (double)rascunho["coord"]["lat"],
@@ -40,6 +41,7 @@ namespace MauiAppTempoAgora.Services
                         visibility = (int)rascunho["visibility"],
                         sunrise = sunrise.ToString(),
                         sunset = sunset.ToString(),
+                        
 
                     };
                 }
